@@ -1,0 +1,31 @@
+{
+    "name": "ESP8266_SPI_Driver",
+    "keywords": "esp8266, spi",
+    "description": "Driver code to interface with ESP8266 built-in hardware SPI functions.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/stash-s/ESP8266_SPI_Driver"
+    },
+    "authors":
+    [
+        {
+            "name": "David Ogilvy",
+            "email": "",
+            "url": "http://d.av.id.au/blog/"
+        }
+        {
+            "name": "Staszek Salik",
+            "email": "staszek.salik@gmail.com",
+            "maintainer": true
+        }
+    ],
+    "version": "0.0.1",
+    "frameworks": "esp8266-nonos-sdk",
+    "platforms": "espressif8266",
+    "export": {
+        "include": [
+            "include/driver/*.h",
+            "driver/*.c"
+        ]
+    }
+}
