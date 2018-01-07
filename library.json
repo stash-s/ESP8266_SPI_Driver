@@ -18,12 +18,12 @@
             "maintainer": true
         }
     ],
-    "version": "0.0.1",
+    "version": "0.0.2",
     "frameworks": "esp8266-nonos-sdk",
     "platforms": "espressif8266",
     "export": {
         "include": [
-            "include/driver/*.h",
+            "include/driver",
             "driver/*.c"
         ]
     }
