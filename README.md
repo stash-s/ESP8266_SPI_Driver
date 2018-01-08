@@ -1,5 +1,20 @@
+
 ESP8266 SPI Driver
 ========
+
+This is a port of SPI library by David Ogilvy (https://github.com/MetalPhreak)
+to esp8266-nonos-sdk. Recently good folks at Espressif added
+some support for SPI hardware into their NonOs SDK.
+
+Yet, I was unable to make it work. David's library works like
+a champ. The only problem were obvious name conflicts between
+SDK include files and library.
+
+I worked these around by prefixing include files with 'mp_' .
+Also added C++ compatibility (extern "C" {}) to prevent name
+mangling.
+
+Original documentation:
 
 Some general information about the SPI hardware and my investigations into the control registers are on http://d.av.id.au/blog/ for those who want a deeper insight into how the code works.
 
@@ -15,7 +30,7 @@ HSPI Hardware Pins
 
 Main SPI Transaction Function
 ========
-Perform an SPI transaction. 
+Perform an SPI transaction.
 
 spi_transaction(spi_no, cmd_bits, cmd_data, addr_bits, addr_data, dout_bits, dout_data, din_bits, dummy_bits)
 
@@ -54,7 +69,7 @@ Command = 0b101 (3 bit write command)
 
 Address = 0b111110011 or 0x1F3 (9 bit data address)
 
-Data    = 0b11001100 or 0xCC (8 bits of data) 
+Data    = 0b11001100 or 0xCC (8 bits of data)
 
 SPI Transaction Packet = 0b10111111001111001100 or 0xBF3CC
 
@@ -87,7 +102,7 @@ Send 16 bits of data (1 WORD):
 spi_tx16(spi_no, data)
 
 Send 32 bits of data (1 DWORD):
-spi_tx32(spi_no, data) 
+spi_tx32(spi_no, data)
 
 Example:
 
@@ -114,14 +129,14 @@ Basic Receive Functions
 Receive 'n' bits of data:
 spi_rxd(spi_no, bits)
 
-Receive 8 bits of data (1 BYTE): 
+Receive 8 bits of data (1 BYTE):
 spi_rx8(spi_no)
 
-Receive 16 bits of data (1 WORD): 
+Receive 16 bits of data (1 WORD):
 spi_rx16(spi_no)
 
-Receive 32 bits of data (1 DWORD): 
-spi_rx32(spi_no) 
+Receive 32 bits of data (1 DWORD):
+spi_rx32(spi_no)
 
 Example:
 
@@ -140,6 +155,3 @@ word = (uint16) spi_rx16(HSPI); //returned value is uint32. Cast to uint16
 dword = spi_rx32(HSPI); //No type casting needed
 
 9bit = (uint16) spi_rxd(HSPI, 9); //returned value is uint32. Cast to uint16
-
-
-
