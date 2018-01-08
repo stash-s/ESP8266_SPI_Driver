@@ -12,7 +12,7 @@ SDK include files and library.
 
 I worked these around by prefixing include files with 'mp_' .
 Also added C++ compatibility (extern "C" {}) to prevent name
-mangling.
+mangling and PlatformIO support.
 
 Original documentation:
 
