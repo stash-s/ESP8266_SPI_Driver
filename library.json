@@ -20,7 +20,5 @@
     ],
     "version": "0.0.3",
     "frameworks": "esp8266-nonos-sdk",
-    "platforms": "espressif8266",
-    "export": {
-    }
+    "platforms": "espressif8266"
 }
